@@ -1,4 +1,4 @@
-name: CI & THEME CHECK
+name: CI
 on: [push]
 jobs:
   lhci:
