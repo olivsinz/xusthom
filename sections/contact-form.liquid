@@ -48,16 +48,6 @@
         {%- endif -%}
       </div>
     </div>
-  	<div class="field">
-      <label for="ContactFormProductNameField">Products</label>
-      <select id="ContactFormProductNameField" name="contact[Product]" required>
-          <option selected disabled>Choose your product</option>
-          <option value="Others - No product-related concerns">Others - No product-related concerns</option>
-          {% for product in collections.all.products %}
-              <option value="{{ product.title }}">{{ product.title }}</option>
-          {% endfor %}
-      </select>
-    </div>
     
     <div>
       <label for="ContactFormProductNameField" style="display: block;font-size: 1.4rem;margin-bottom: 0.6rem;">Products</label>
