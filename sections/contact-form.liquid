@@ -58,6 +58,30 @@
           {% endfor %}
       </select>
   </div>
+  <div>
+    <label for="AddressCountry_{{ form.id }}">
+      {{ 'customer.addresses.country' | t }}
+    </label>
+    <div class="select">
+      <select
+              id="AddressCountry_{{ form.id }}"
+              name="address[country]"
+              data-address-country-select
+              data-default="{{ form.country }}"
+              data-form-id="{{ form.id }}"
+              autocomplete="country"
+              >
+        <option selected disabled>Choisissez le produit lié à votre préoccupation</option>
+          <option value="Others - No product-related concerns">Autres - Aucune préoccupation liée au produit</option>
+          {% for product in collections.all.products %}
+              <option value="{{ product.title }}">{{ product.title }}</option>
+          {% endfor %}
+      </select>
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+        <use href="#icon-caret" />
+      </svg>
+    </div>
+  </div>
   
   <div class="field">
    <p class="line-item-property__field">
