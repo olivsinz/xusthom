@@ -1,77 +1,43 @@
-{% unless template == 'index' or template == 'cart' or template == 'list-collections' or template == '404' %}
-
-{% assign t = template | split: '.' | first %}
-
-<div class="page-width" style="padding-top: 15px;">
-<nav class="breadcrumbs" role="navigation" aria-label="breadcrumbs">
-  <ol>
-    <li>
-      <a href="/" title="Home">Home</a>
-    </li>
-
-  {% case t %}
-  {% when 'page' %}
-
-    <li>
-      <a href="{{ page.url }}" aria-current="page">{{ page.title }}</a>
-    </li>
-
-  {% when 'product' %}
-
+{% unless template == 'index' or template == 'cart' or template == 'list-collections' %}
+  <nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+    <a href="/" title="Home">Home</a>
+    {% if template contains 'page' %}
+      <span aria-hidden="true">&rsaquo;</span>
+      <span>{{ page.title }}</span>
+    {% elsif template contains 'product' %}
     {% if collection.url %}
-      <li>
-        {{ collection.title | link_to: collection.url }}
-      </li>
+      <span aria-hidden="true">&rsaquo;</span>
+      {{ collection.title | link_to: collection.url }}
     {% endif %}
-
-    <li>
-      <a href="{{ product.url }}" aria-current="page">{{ product.title }}</a>
-    </li>
-
-  {% when 'collection' and collection.handle %}
-
-    {% if current_tags %}
-      <li>{{ collection.title | link_to: collection.url }}</li>
-      <li>
-        {% capture tag_url %}{{ collection.url }}/{{ current_tags | join: "+"}}{% endcapture %}
-        <a href="{{ tag_url }}" aria-current="page">{{ current_tags | join: " + "}}</a>
-      </li>
+    <span aria-hidden="true">&rsaquo;</span>
+    <span>{{ product.title }}</span>
+    {% elsif template contains 'collection' and collection.handle %}
+      <span aria-hidden="true">&rsaquo;</span>
+      {% if current_tags %}
+        {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+        {{ collection.title | link_to: url }}
+        <span aria-hidden="true">&rsaquo;</span>
+        <span>{{ current_tags | join: " + " }}</span>
+      {% else %}
+        <span>{{ collection.title }}</span>
+      {% endif %}
+    {% elsif template == 'blog' %}
+      <span aria-hidden="true">&rsaquo;</span>
+      {% if current_tags %}
+        {{ blog.title | link_to: blog.url }}
+        <span aria-hidden="true">&rsaquo;</span>
+        <span>{{ current_tags | join: " + " }}</span>
+      {% else %}
+        <span>{{ blog.title }}</span>
+      {% endif %}
+    {% elsif template == 'article' %}
+      <span aria-hidden="true">&rsaquo;</span>
+      {{ blog.title | link_to: blog.url }}
+      <span aria-hidden="true">&rsaquo;</span>
+      <span>{{ article.title }}</span>
     {% else %}
-      <li>
-        <a href="{{ collection.url }}" aria-current="page">{{ collection.title }}</a>
-      </li>
+      <span aria-hidden="true">&rsaquo;</span>
+      <span>{{ page_title }}</span>
     {% endif %}
-
-  {% when 'blog' %}
-
-    {% if current_tags %}
-      <li>{{ blog.title | link_to: blog.url }}</li>
-      <li>
-        {% capture tag_url %}{{blog.url}}/tagged/{{ current_tags | join: "+" }}{% endcapture %}
-        <a href="{{ tag_url }}" aria-current="page">{{ current_tags | join: " + " }}</a>
-      </li>
-    {% else %}
-      <li>
-        <a href="{{ blog.url }}" aria-current="page">{{ blog.title }}</a>
-      </li>
-    {% endif %}
-
-  {% when 'article' %}
-
-    <li>{{ blog.title | link_to: blog.url }}</li>
-    <li>
-      <a href="{{ article.url }}" aria-current="page">{{ article.title }}</a>
-    </li>
-
-  {% else %}
-
-    <li aria-current="page">
-      <a href="{{ request.path }}" aria-current="page">{{ page_title }}</a>
-    </li>
-
-  {% endcase %}
-
-  </ol>
-</nav>
+  </nav>
 {% endunless %}
-</div>
