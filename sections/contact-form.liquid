@@ -52,7 +52,7 @@
       <label for="ContactFormProductNameField">Products</label>
       <select id="ContactFormProductNameField" name="contact[Product]" required>
           <option selected disabled>Choose your product</option>
-          <option value="Others - No product-related concerns">Others - No product-related concerns</option>
+          <option value="Others - No product-related concerns">Autres - Aucune préoccupation liée au produit</option>
           {% for product in collections.all.products %}
               <option value="{{ product.title }}">{{ product.title }}</option>
           {% endfor %}
