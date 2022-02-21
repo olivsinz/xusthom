@@ -1,7 +1,7 @@
 {
   "general": {
     "breadcrumbs": {
-      "home_link_title": "Home"
+      "home": "Home"
     },
     "password_page": {
       "login_form_heading": "Enter store using password:",
