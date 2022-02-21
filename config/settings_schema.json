@@ -4,8 +4,18 @@
     "theme_name": "Xusthom",
     "theme_version": "2.3.0",
     "theme_author": "0l1v3r5",
-    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes/os20/themes-by-shopify/dawn",
-    "theme_support_url": "https://support.shopify.com/"
+    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes\/os20\/themes-by-shopify\/dawn",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
+  },
+  {
+    "name": "Breadcrumbs Navigation",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_breadcrumb_nav",
+        "label": "Show breadcrumb navigation"
+      }
+    ]
   },
   {
     "name": "t:settings_schema.colors.name",
