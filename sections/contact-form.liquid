@@ -50,13 +50,13 @@
     </div>
     
     <div class="customer" style="margin-bottom: 2rem;">
-      <label for="ContactFormProductNameField" style="display: block; font-size: 1.4rem;margin-bottom: 0.6rem;">Products</label>
+      <label for="ContactFormProductNameField" style="display: block; font-size: 1.4rem;margin-bottom: 0.6rem;">Produits liés à votre préoccupations</label>
       <div class="select">
         <select class="select__selectx"
                 id="ContactFormProductNameField"
                 name="contact[Product]" required
                 >
-          <option selected disabled>Choose your product</option>
+          <option selected disabled>Choisissez le produit</option>
           <option value="Others - No product-related concerns">Others - No product-related concerns</option>
           {% for product in collections.all.products %}
               <option value="{{ product.title }}">{{ product.title }}</option>
