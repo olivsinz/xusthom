@@ -2,6 +2,7 @@
 {%- comment -%}
   Documentation - http://docs.shopify.com/support/your-website/navigation/creating-a-breadcrumb-navigation
 {%- endcomment -%}
+
 {%- unless template == 'index' or template == 'cart' -%}
 <nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
   <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
