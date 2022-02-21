@@ -132,7 +132,9 @@
     {% section 'announcement-bar' %}
     {% section 'header' %}
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
-      {% include 'breadcrumbs' %}
+      {% if settings.show_breadcrumb_nav %}
+        {% include 'breadcrumbs' %}
+      {% endif %}
       {{ content_for_layout }}
     </main>
 
