@@ -49,49 +49,15 @@
       </div>
     </div>
   	<div class="field">
-      <label for="ContactFormProductNameField" class="field__label">Produits</label>
-      <select id="ContactFormProductNameField" class="field__input" style="height: 5.8rem;" name="contact[Product]" required>
-          <option selected disabled>Choisissez le produit lié à votre préoccupation</option>
-          <option value="Others - No product-related concerns">Autres - Aucune préoccupation liée au produit</option>
+      <label for="ContactFormProductNameField">Products</label>
+      <select id="ContactFormProductNameField" name="contact[Product]" required>
+          <option selected disabled>Choose your product</option>
+          <option value="Others - No product-related concerns">Others - No product-related concerns</option>
           {% for product in collections.all.products %}
               <option value="{{ product.title }}">{{ product.title }}</option>
           {% endfor %}
       </select>
   </div>
-  <div class="field">
-    <label for="ContactFormProductNameField" class="field__label">Produits</label>
-    <div class="select">
-      <select
-              id="AddressCountry_{{ form.id }}"
-              name="address[country]"
-              data-address-country-select
-              data-default="{{ form.country }}"
-              data-form-id="{{ form.id }}"
-              autocomplete="country"
-              >
-        <option selected disabled>Choisissez le produit lié à votre préoccupation</option>
-          <option value="Others - No product-related concerns">Autres - Aucune préoccupation liée au produit</option>
-          {% for product in collections.all.products %}
-              <option value="{{ product.title }}">{{ product.title }}</option>
-          {% endfor %}
-      </select>
-      <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
-        <use href="#icon-caret" />
-      </svg>
-    </div>
-  </div>
-  
-  <div class="field">
-   <p class="line-item-property__field">
-<label>Your name</label><br>
-<select id="your-name" name="properties[Your name]" style="font-size: 1.5rem; width: 100%; padding: 2%;">
-<option value="Red">Red</option>
-<option value="White">White</option>
-<option value="Blue">Blue</option>
-</select>
-</p>
-  </div>
-  
     <div class="field">
       <input type="tel" id="ContactForm-phone" class="field__input" autocomplete="tel" name="contact[{{ 'templates.contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="{{ 'templates.contact.form.phone' | t }}">
       <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
