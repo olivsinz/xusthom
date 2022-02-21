@@ -49,11 +49,8 @@
       </div>
     </div>
   	<div class="field">
-      <label for="ContactFormProductNameField" class="field__label" hidden>Produits</label>
-      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret" viewBox="0 0 10 6">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
-      </path></svg>
-      <select id="ContactFormProductNameField" class="select__select" name="contact[Product]" required>
+      <label for="ContactFormProductNameField" class="field__label">Produits</label>
+      <select id="ContactFormProductNameField" class="field__input" style="height: 5.5rem;" name="contact[Product]" required>
           <option selected disabled>Choisissez le produit lié à votre préoccupation</option>
           <option value="Others - No product-related concerns">Autres - Aucune préoccupation liée au produit</option>
           {% for product in collections.all.products %}
@@ -61,15 +58,7 @@
           {% endfor %}
       </select>
   </div>
-  <div class="field">
-	  <select name="cars" id="cars" class="field__input" style="height: 5.5rem;">
-  		<option value="volvo">Volvo</option>
-  		<option value="saab">Saab</option>
-  		<option value="mercedes">Mercedes</option>
-  		<option value="audi">Audi</option>
-	  </select>  
-      <label class="field__label" for="cars">choose you car</label>
-    </div>
+  
     <div class="field">
       <input type="tel" id="ContactForm-phone" class="field__input" autocomplete="tel" name="contact[{{ 'templates.contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="{{ 'templates.contact.form.phone' | t }}">
       <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
