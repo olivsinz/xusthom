@@ -50,7 +50,7 @@
     </div>
   	<div class="field">
       <label for="ContactFormProductNameField" class="field__label" hidden>Produits</label>
-      <select id="ContactFormProductNameField" class="field__select" name="contact[Product]" required>
+      <select id="ContactFormProductNameField" class="select__select" name="contact[Product]" required>
           <option selected disabled>Choisissez le produit lié à votre préoccupation</option>
           <option value="Others - No product-related concerns">Autres - Aucune préoccupation liée au produit</option>
           {% for product in collections.all.products %}
