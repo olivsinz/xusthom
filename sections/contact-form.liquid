@@ -65,7 +65,11 @@
                 id="ContactFormProductNameField"
                 name="contact[Product]" required
                 >
-          {{ all_country_option_tags }}
+          <option selected disabled>Choose your product</option>
+          <option value="Others - No product-related concerns">Others - No product-related concerns</option>
+          {% for product in collections.all.products %}
+              <option value="{{ product.title }}">{{ product.title }}</option>
+          {% endfor %}
         </select>
         <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
           <use href="#icon-caret" />
