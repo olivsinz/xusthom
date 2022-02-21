@@ -59,6 +59,17 @@
       </select>
   </div>
   
+  <div class="field">
+   <p class="line-item-property__field">
+<label>Your name</label><br>
+<select id="your-name" name="properties[Your name]" style="font-size: 1.5rem; width: 100%; padding: 2%;">
+<option value="Red">Red</option>
+<option value="White">White</option>
+<option value="Blue">Blue</option>
+</select>
+</p>
+  </div>
+  
     <div class="field">
       <input type="tel" id="ContactForm-phone" class="field__input" autocomplete="tel" name="contact[{{ 'templates.contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="{{ 'templates.contact.form.phone' | t }}">
       <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
