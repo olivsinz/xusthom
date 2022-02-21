@@ -22,6 +22,16 @@
   .align-middle-x {
     vertical-align: middle;
   }
+  li:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  li::before {
+    
+    display: inline-block;
+    vertical-align: sub;
+    background-color: red;
+  }
   .inline-block-x {
   display: inline-block;}
   .list-style-img-x {
