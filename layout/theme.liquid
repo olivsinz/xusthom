@@ -122,7 +122,9 @@
     {%- endif -%}
 
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
-  </head>
+  {% render 'weglot_hreftags' %}
+{% render 'weglot_switcher' %}
+</head>
 
   <body class="gradient">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
